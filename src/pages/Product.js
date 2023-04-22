@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './product.css';
+import { Col, Form, Row, Table} from 'react-bootstrap';
 
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
@@ -32,7 +32,7 @@ function ProductCategoryRow({ category }) {
 
 function ProductRow({ product }) {
   const name = product.stocked ? product.name :
-    <span style={{ color: 'red' }}>
+    <span className='text-danger'>
       {product.name}
     </span>;
 
@@ -75,7 +75,7 @@ function ProductTable({ products, filterText, inStockOnly }) {
   });
 
   return (
-    <table>
+    <Table>
       <thead>
         <tr>
           <th>Name</th>
@@ -83,26 +83,26 @@ function ProductTable({ products, filterText, inStockOnly }) {
         </tr>
       </thead>
       <tbody>{rows}</tbody>
-    </table>
+    </Table>
   );
 }
 
 function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange}) {
   return (
     <form>
-        <input 
-            type="text" 
-            value={filterText} placeholder="Search..." 
-            onChange={(e) => onFilterTextChange(e.target.value)} 
-        />
-        <label>
-            <input 
+        <Form.Group className='mb-2'>
+          <Form.Control 
+              type="text" 
+              value={filterText} placeholder="Search..." 
+              onChange={(e) => onFilterTextChange(e.target.value)} 
+          />
+        </Form.Group>
+        <Form.Group  className='mb-2' controlId="formBasicCheckbox">
+            <Form.Check 
                 type="checkbox" 
                 checked={inStockOnly} 
-                onChange={(e) => onInStockOnlyChange(e.target.checked)} />
-        {' '}
-        Only show products in stock
-        </label>
+                onChange={(e) => onInStockOnlyChange(e.target.checked)} label="Only show products in stock"/>
+        </Form.Group >
     </form>
   );
 }
@@ -117,5 +117,14 @@ const PRODUCTS = [
 ];
 
 export default function App() {
-  return <FilterableProductTable products={PRODUCTS} />;
+  return (
+    <>
+      <h1>Product Filter</h1>
+      <Row>
+        <Col sm={4}>
+          <FilterableProductTable products={PRODUCTS} />
+        </Col>
+      </Row>
+    </>
+  );
 }

@@ -1,6 +1,5 @@
-import './App.css';
-import './board.css';
-import Square from './components/square';
+import '../App.css';
+import Square from '../components/square';
 import { useState } from 'react';
 
 function Board({ xIsNext, squares, onPlay }) {
@@ -60,11 +59,14 @@ export default function Game() {
   }
 
   return (
+    <>
+    <h1>TicTacToe Games</h1>
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>     
     </div>
+    </>
   );
 }
 
