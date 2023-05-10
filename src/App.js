@@ -5,6 +5,7 @@ import Intro from './pages/ReactIntro';
 import Tictactoe from './pages/Tictactoe';
 import Product from './pages/Product';
 import Gallery from './pages/Gallery';
+import Movie from './pages/Themovie';
 
 export default function App() {
   return (
@@ -20,23 +21,20 @@ export default function App() {
               <NavDropdown.Item href="/tictactoe">TicTacToe</NavDropdown.Item>
               <NavDropdown.Item href="/product">Product</NavDropdown.Item>
               <NavDropdown.Item href="/gallery">Gallery</NavDropdown.Item>
+              <NavDropdown.Item href="/movie">Movie</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <Container className='py-4'>
-    <Row className='justify-content-center'>
-      <Col sm={10}>
-        <Routes>
-          <Route path='/' element={<Intro/>}/>
-          <Route path='/tictactoe' element={<Tictactoe/>}/>
-          <Route path='/product' element={<Product/>}/>
-          <Route path='/gallery' element={<Gallery/>}/>
-        </Routes>
-      </Col>
-    </Row>
-    </Container>
+    <Routes>
+      <Route path='/' element={<Intro/>}/>
+      <Route path='/tictactoe' element={<Tictactoe/>}/>
+      <Route path='/product' element={<Product/>}/>
+      <Route path='/gallery' element={<Gallery/>}/>
+      <Route path='/movie' element={<Movie/>}/>
+    </Routes>
+    
     </>
   );
 }

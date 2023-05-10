@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Col, Container, Row} from 'react-bootstrap';
 
 const images = [
   {
@@ -144,12 +144,18 @@ function ImageContainer({filterImages}) {
 
 export default function App() {
   return (
-    <div className='px-5'>
-      <h1 className='text-center'>Image Gallery</h1>
-      <ImageGallery images={images}/>     
-      <h6 className='text-center mt-4'>
-        Made by Fadilah Muh
-      </h6> 
-    </div>
+    <Container className='py-4'>
+    <Row className='justify-content-center'>
+      <Col sm={10}>
+        <div className='px-5'>
+          <h1 className='text-center'>Image Gallery</h1>
+          <ImageGallery images={images}/>     
+          <h6 className='text-center mt-4'>
+            Made by Fadilah Muh
+          </h6> 
+        </div>
+      </Col>
+    </Row>
+    </Container>
   );
 }

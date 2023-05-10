@@ -1,3 +1,4 @@
+import { Col, Container, Row } from 'react-bootstrap';
 import '../App.css';
 import Square from '../components/square';
 import { useState } from 'react';
@@ -59,14 +60,19 @@ export default function Game() {
   }
 
   return (
-    <>
-    <h1>TicTacToe Games</h1>
-    <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>     
-    </div>
-    </>
+    <Container className='py-4'>
+    <Row className='justify-content-center'>
+      <Col sm={10}>
+        <h1>TicTacToe Games</h1>
+        <div className="game">
+          <div className="game-board">
+            <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+          </div>     
+        </div>
+      </Col>
+    </Row>
+    </Container>
+    
   );
 }
 

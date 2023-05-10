@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Col, Form, Row, Table} from 'react-bootstrap';
+import { Col, Container, Form, Row, Table} from 'react-bootstrap';
 
 function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState('');
@@ -118,13 +118,17 @@ const PRODUCTS = [
 
 export default function App() {
   return (
-    <>
-      <h1>Product Filter</h1>
-      <Row>
-        <Col sm={4}>
-          <FilterableProductTable products={PRODUCTS} />
-        </Col>
-      </Row>
-    </>
+    <Container className='py-4'>
+    <Row className='justify-content-center'>
+      <Col sm={10}>
+        <h1>Product Filter</h1>
+        <Row>
+          <Col sm={4}>
+            <FilterableProductTable products={PRODUCTS} />
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+    </Container>
   );
 }

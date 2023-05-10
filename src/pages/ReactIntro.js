@@ -1,6 +1,6 @@
 import '../App.css';
 import { useState } from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Col, Container, Row} from 'react-bootstrap';
 
 function MyButton() {
   const [count, setCount] = useState(0);
@@ -41,27 +41,31 @@ const listItems = products.map(product =>
 
 function App() {
   return (
-    <>
-      <h1 className='mb-4'>Introductio ReactJS</h1>
-      <MyButton />
-      <h1>{user.name}</h1>
-      <img
-        className="avatar"
-        src={user.imageUrl}
-        alt={'Photo of ' + user.name}
-        style={{
-          width: user.imageSize,
-          height: user.imageSize
-        }}
-      />
-      <ul>{listItems}</ul>
-      <div>
-      <h1>Counters that update separately</h1>
-      <MyButton2 />
-      {' '}
-      <MyButton2/>
-    </div>
-    </>
+    <Container className='py-4'>
+    <Row className='justify-content-center'>
+      <Col sm={10}>
+        <h1 className='mb-4'>Introduction ReactJS</h1>
+        <MyButton />
+        <h1>{user.name}</h1>
+        <img
+          className="avatar"
+          src={user.imageUrl}
+          alt={'Photo of ' + user.name}
+          style={{
+            width: user.imageSize,
+            height: user.imageSize
+          }}
+        />
+        <ul>{listItems}</ul>
+        <div>
+        <h1>Counters that update separately</h1>
+        <MyButton2 />
+        {' '}
+        <MyButton2/>
+      </div>
+      </Col>
+    </Row>
+    </Container>
   );
 
   
